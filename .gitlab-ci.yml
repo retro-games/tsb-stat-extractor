@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 image: node:6.9.4
-=======
-image: node:7.4.0
->>>>>>> upstream/develop
 
 stages:
   - test
