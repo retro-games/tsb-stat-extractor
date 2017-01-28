@@ -9,7 +9,7 @@
     "testRegex": "\\.spec\\.js$"
   },
   "scripts": {
-    "test": "jest"
+    "test": "./test_entry_point.sh"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "babel-jest": "^18.0.0",
     "babel-polyfill": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
+    "coveralls": "^2.11.15",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.4",
