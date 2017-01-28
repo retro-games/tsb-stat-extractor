@@ -5,7 +5,7 @@
 
 # tsb-stat-extractor-es6
 
-A stat extractor for TSB save states, written in EcmaScript 6.
+A stat extractor for TSB save states, written in ECMAScript 6.
 
 This includes:
  * TSB (Nestopia)
