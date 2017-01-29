@@ -2,7 +2,7 @@
  * Created by edgrams on 1/27/17.
  */
 
-import {justATest} from '../src/main'
+import {justATest} from '../src/main';
 
 test('print test statement', () => {
    const result = justATest();
