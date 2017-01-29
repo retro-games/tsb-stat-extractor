@@ -4,13 +4,13 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 
 gulp.task('lint', function () {
-   return gulp.src('src/*.js')
+   return gulp.src(['src/**/*.js', 'test/**/*.spec.js'])
        .pipe(jshint())
        .pipe(jshint.reporter('default'));
 });
 
 gulp.task('scripts', function () {
-   return gulp.src('src/*.js')
+   return gulp.src('src/**/*.js')
        .pipe(concat('tsb-stat-extractor.js'))
        .pipe(gulp.dest('dist'));
 });

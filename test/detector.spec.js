@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-import {detect} from '../src/detector'
+import {detect} from '../src/detector';
 import * as constants from '../src/save-states';
 
 let bytes, saveState;
