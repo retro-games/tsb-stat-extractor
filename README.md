@@ -8,4 +8,5 @@
 A stat extractor for TSB save states, written in ECMAScript 6.
 
 This includes:
- * TSB (Nestopia)
+ * TSB-NES (Nestopia)
+ 
