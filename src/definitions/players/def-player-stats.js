@@ -3,11 +3,11 @@
  */
 
 class DefPlayerStats {
-    constructor() {
-        this.condition = undefined;
-        this.interceptions = undefined;
-        this.intTouchdowns = undefined;
-        this.intYards = undefined;
-        this.sacks = undefined;
+    constructor(condition, interceptions, intTouchDowns, intYards, sacks) {
+        this.condition = condition;
+        this.interceptions = interceptions;
+        this.intTouchdowns = intTouchDowns;
+        this.intYards = intYards;
+        this.sacks = sacks;
     }
 }

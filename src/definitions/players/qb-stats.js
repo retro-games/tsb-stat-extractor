@@ -3,16 +3,17 @@
  */
 
 class QBStats {
-    constructor() {
-        this.condition = undefined;
-        this.health = undefined;
-        this.passAttempts = undefined;
-        this.passCompletions = undefined;
-        this.passInterceptions = undefined;
-        this.passTouchdowns = undefined;
-        this.passYards = undefined;
-        this.rushAttempts = undefined;
-        this.rushTouchdowns = undefined;
-        this.rushYards = undefined;
+    constructor(condition, health, passAttempts, passCompletions, passInterceptions, passTouchdowns, passYards,
+                rushAttempts, rushTouchdowns, rushYards) {
+        this.condition = condition;
+        this.health = health;
+        this.passAttempts = passAttempts;
+        this.passCompletions = passCompletions;
+        this.passInterceptions = passInterceptions;
+        this.passTouchdowns = passTouchdowns;
+        this.passYards = passYards;
+        this.rushAttempts = rushAttempts;
+        this.rushTouchdowns = rushTouchdowns;
+        this.rushYards = rushYards;
     }
 }

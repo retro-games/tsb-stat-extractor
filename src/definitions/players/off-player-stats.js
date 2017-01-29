@@ -3,20 +3,22 @@
  */
 
 class OffPlayerStats {
-    constructor() {
-        this.condition = undefined;
-        this.health = undefined;
-        this.kickReturns = undefined;
-        this.kickReturnTouchdowns = undefined;
-        this.kickReturnYards = undefined;
-        this.puntReturns = undefined;
-        this.puntReturnTouchdowns = undefined;
-        this.puntReturnYards = undefined;
-        this.receptions = undefined;
-        this.recTouchdowns = undefined;
-        this.recYards = undefined;
-        this.rushAttempts = undefined;
-        this.rushTouchdowns = undefined;
-        this.rushYards = undefined;
+    constructor(condition, health, kickReturns, kickReturnTouchdowns, kickReturnYards, puntReturns,
+                puntReturnTouchdowns, puntReturnYards, receptions, recTouchdowns, recYards, rushAttempts,
+                rushTouchdowns, rushYards) {
+        this.condition = condition;
+        this.health = health;
+        this.kickReturns = kickReturns;
+        this.kickReturnTouchdowns = kickReturnTouchdowns;
+        this.kickReturnYards = kickReturnYards;
+        this.puntReturns = puntReturns;
+        this.puntReturnTouchdowns = puntReturnTouchdowns;
+        this.puntReturnYards = puntReturnYards;
+        this.receptions = receptions;
+        this.recTouchdowns = recTouchdowns;
+        this.recYards = recYards;
+        this.rushAttempts = rushAttempts;
+        this.rushTouchdowns = rushTouchdowns;
+        this.rushYards = rushYards;
     }
 }

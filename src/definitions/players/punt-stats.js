@@ -3,9 +3,9 @@
  */
 
 class PuntStats {
-    constructor() {
-        this.condition = undefined;
-        this.punts = undefined;
-        this.puntYards = undefined;
+    constructor(condition, punts, puntYards) {
+        this.condition = condition;
+        this.punts = punts;
+        this.puntYards = puntYards;
     }
 }
