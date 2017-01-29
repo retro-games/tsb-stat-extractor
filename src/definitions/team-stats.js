@@ -3,14 +3,14 @@
  */
 
 class TeamStats {
-    constructor() {
-        this.firstDowns = undefined;
+    constructor(teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter) {
+        this.firstDowns = firstDowns;
         this.score = {
-            firstQuarter: undefined,
-            secondQuarter: undefined,
-            thirdQuarter: undefined,
-            fourthQuarter: undefined
+            firstQuarter: firstQuarter,
+            secondQuarter: secondQuarter,
+            thirdQuarter: thirdQuarter,
+            fourthQuarter: fourthQuarter
         };
-        this.teamId = undefined;
+        this.teamId = teamId;
     }
 }

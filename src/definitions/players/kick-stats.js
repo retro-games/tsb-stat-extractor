@@ -3,7 +3,7 @@
  */
 
 class KickStats {
-    constructor() {
+    constructor(condition, extraPointAttempts, extraPointsMade, fieldGoalAttempts, fieldGoalsMade) {
         this.condition = undefined;
         this.extraPointAttempts = undefined;
         this.extraPointsMade = undefined;
