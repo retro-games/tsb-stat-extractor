@@ -1,15 +1,17 @@
 {
   "name": "tsb-stat-extractor-es6",
   "version": "1.0.0",
-  "description": "[![Stories in Ready](https://badge.waffle.io/retro-games/tsb-stat-extractor-es6.png?label=ready&title=Ready)](http://waffle.io/retro-games/tsb-stat-extractor-es6)",
-  "main": "index.js",
+  "description": "tsb-stat-extractor-es6",
+  "main": "main.js",
   "dependencies": {},
   "jest": {
     "collectCoverage": true,
     "testRegex": "\\.spec\\.js$"
   },
   "scripts": {
-    "test": "./test_entry_point.sh"
+    "test": "./test_entry_point.sh",
+    "lint": "jshint .",
+    "validate": "gulp"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.1",
     "jest": "^18.1.0",
-    "jshint": "^2.9.4"
-  }
+    "jshint": "^2.9.4",
+    "precommit-hook": "^3.0.0"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
