@@ -5,7 +5,7 @@
 import {getHexValueAsInt} from '../../../src/utility';
 import {TeamStats} from '../../definitions/team-stats';
 
-function generateTeamStats(bytes, homeLocations, awayLocations, isHome) {
+export default function (bytes, homeLocations, awayLocations, isHome) {
     let offset, locations, teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore;
 
     if (isHome) {
@@ -29,5 +29,3 @@ function generateTeamStats(bytes, homeLocations, awayLocations, isHome) {
 
     return new TeamStats(teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore);
 }
-
-export {generateTeamStats};
