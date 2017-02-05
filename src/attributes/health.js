@@ -33,3 +33,5 @@ function getValue(healthBinary) {
 
     return healthValue;
 }
+
+export {health, getValue};

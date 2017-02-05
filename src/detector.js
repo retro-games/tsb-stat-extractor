@@ -4,7 +4,7 @@
 
 import {nesNestopiaSaveState, unknownSaveState} from './save-states';
 
-function detect(bytes) {
+export default function (bytes) {
     let saveState = unknownSaveState;
 
     if (bytes.length === nesNestopiaSaveState.LENGTH) {
@@ -13,5 +13,3 @@ function detect(bytes) {
 
     return saveState;
 }
-
-export {detect};
