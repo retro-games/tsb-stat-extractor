@@ -2,13 +2,13 @@
  * Created by edgrams on 1/29/17.
  */
 
-import * as constants from './save-states';
+import {nesNestopiaSaveState, unknownSaveState} from './save-states';
 
 function detect(bytes) {
-    var saveState = constants.UNKNOWN;
+    let saveState = unknownSaveState;
 
-    if (bytes.length === constants.NES_NESTOPIA.LENGTH) {
-        saveState = constants.NES_NESTOPIA;
+    if (bytes.length === nesNestopiaSaveState.LENGTH) {
+        saveState = nesNestopiaSaveState;
     }
 
     return saveState;

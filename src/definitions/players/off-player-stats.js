@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-class OffPlayerStats {
+export class OffPlayerStats {
     constructor(condition, health, kickReturns, kickReturnTouchdowns, kickReturnYards, puntReturns,
                 puntReturnTouchdowns, puntReturnYards, receptions, recTouchdowns, recYards, rushAttempts,
                 rushTouchdowns, rushYards) {

@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-class QBStats {
+export class QBStats {
     constructor(condition, health, passAttempts, passCompletions, passInterceptions, passTouchdowns, passYards,
                 rushAttempts, rushTouchdowns, rushYards) {
         this.condition = condition;

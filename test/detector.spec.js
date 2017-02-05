@@ -3,22 +3,22 @@
  */
 
 import {detect} from '../src/detector';
-import * as constants from '../src/save-states';
+import {nesNestopiaSaveState, unknownSaveState} from '../src/save-states';
 
 let bytes, saveState;
 
 describe('detector', function () {
     describe('detect', function () {
         test('should return NES Nestopia save state type if said type', () => {
-            bytes = new Array(constants.NES_NESTOPIA.LENGTH);
+            bytes = new Array(nesNestopiaSaveState.LENGTH);
             saveState = detect(bytes);
-            expect(saveState).toBe(constants.NES_NESTOPIA);
+            expect(saveState).toBe(nesNestopiaSaveState);
         });
 
         test('should return unknown save state type if type is not found', () => {
             bytes = [];
             saveState = detect(bytes);
-            expect(saveState).toBe(constants.UNKNOWN);
+            expect(saveState).toBe(unknownSaveState);
         });
     });
 });

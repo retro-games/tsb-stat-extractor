@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-class KickStats {
+export class KickStats {
     constructor(condition, extraPointAttempts, extraPointsMade, fieldGoalAttempts, fieldGoalsMade) {
         this.condition = condition;
         this.extraPointAttempts = extraPointAttempts;
