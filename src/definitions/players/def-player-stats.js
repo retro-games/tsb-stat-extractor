@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-class DefPlayerStats {
+export class DefPlayerStats {
     constructor(condition, interceptions, intTouchDowns, intYards, sacks) {
         this.condition = condition;
         this.interceptions = interceptions;
