@@ -34,8 +34,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.1",
     "jest": "^18.1.0",
+    "jest-cli": "^18.1.0",
     "jshint": "^2.9.4",
-    "json-loader": "^0.5.4",
     "precommit-hook": "^3.0.0"
   },
   "pre-commit": [

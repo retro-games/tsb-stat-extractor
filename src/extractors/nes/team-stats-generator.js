@@ -2,7 +2,7 @@
  * Created by edgrams on 2/5/17.
  */
 
-import {getHexValueAsInt} from '../../../src/utility';
+import {getHexValueAsInt} from '../../utility';
 import {TeamStats} from '../../definitions/team-stats';
 
 export default function (bytes, homeLocations, awayLocations, isHome) {
