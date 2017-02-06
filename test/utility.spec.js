@@ -8,7 +8,7 @@ let result;
 
 describe('utility', function () {
     describe('getHexValueAsInt', function () {
-        test('should return hex value as int', () => {
+        test('hex value as int', () => {
             let byte = 18; // '12' in hex
             result = getHexValueAsInt(byte);
             expect(result).toEqual(12);
