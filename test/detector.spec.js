@@ -9,13 +9,13 @@ let bytes, saveState;
 
 describe('detector', function () {
     describe('detect', function () {
-        test('should return NES Nestopia save state type if said type', () => {
+        test('save state type if type is NES Nestopia', () => {
             bytes = new Array(nesNestopiaSaveState.LENGTH);
             saveState = detect(bytes);
             expect(saveState).toBe(nesNestopiaSaveState);
         });
 
-        test('should return unknown save state type if type is not found', () => {
+        test('save state type if type is not found', () => {
             bytes = [];
             saveState = detect(bytes);
             expect(saveState).toBe(unknownSaveState);
