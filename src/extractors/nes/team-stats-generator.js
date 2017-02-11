@@ -3,7 +3,7 @@
  */
 
 import {getHexValueAsInt} from '../../utility';
-import {TeamStats} from '../../definitions/team-stats';
+import TeamStats from '../../definitions/team-stats';
 
 export default function (bytes, homeLocations, awayLocations, isHome) {
     let offset, locations, teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore;

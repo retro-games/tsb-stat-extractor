@@ -71,4 +71,15 @@ describe('player-stats-generator', () => {
             expect(result.rushTouchdowns).toEqual(0);
         });
     });
+
+    describe('getOffPlayerStats', () => {
+        beforeEach(() => {
+            bytes = new Uint8Array([3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            result = PlayerStatsGenerator.getOffPlayerStats(bytes, 0);
+        });
+
+        test('receptions', () => {
+            expect(result.receptions).toEqual(3);
+        });
+    });
 });

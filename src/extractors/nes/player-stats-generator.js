@@ -3,6 +3,7 @@
  */
 
 import QBStats from '../../definitions/players/qb-stats';
+import OffPlayerStats from '../../definitions/players/off-player-stats';
 
 const YARD_MULTIPLIER = 256;
 const YARD_MULTIPLIER_NEGATIVE = 255;
@@ -37,4 +38,24 @@ function getQBStats(bytes, offset) {
     return new QBStats(passAtts, passComps, passInts, passTDs, passYards, rushAtts, rushTDs, rushYards);
 }
 
-export {getQBStats, getYards};
+function getOffPlayerStats(bytes, offset) {
+    let krAtts, krTDs, krYards, prAtts, prTDs, prYards, recs, recTDs, recYards, rushAtts, rushTDs, rushYards;
+
+    recs = bytes[offset++];
+    recYards = getYards(bytes[offset++], bytes[offset++]);
+    recTDs = bytes[offset++];
+    krAtts = bytes[offset++];
+    krYards = getYards(bytes[offset++], bytes[offset++]);
+    krTDs = bytes[offset++];
+    prAtts = bytes[offset++];
+    prYards = getYards(bytes[offset++], bytes[offset++]);
+    prTDs = bytes[offset++];
+    rushAtts = bytes[offset++];
+    rushYards = getYards(bytes[offset++], bytes[offset++]);
+    rushTDs = bytes[offset];
+
+    return new OffPlayerStats(krAtts, krTDs, krYards, prAtts, prTDs, prYards,
+        recs, recTDs, recYards, rushAtts, rushTDs, rushYards);
+}
+
+export {getQBStats, getOffPlayerStats, getYards};
