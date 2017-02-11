@@ -2,15 +2,15 @@
  * Created by edgrams on 2/5/17.
  */
 
-jest.unmock('../../../src/utility');
+jest.unmock("../../../src/utility");
 
-import generateTeamStats from '../../../src/extractors/nes/team-stats-generator';
+import generateTeamStats from "../../../src/extractors/nes/team-stats-generator";
 
 let bytes, locations, result;
 
-describe('team-stats-generator', function () {
-    describe('generateTeamStats', function () {
-        describe('home', function () {
+describe("team-stats-generator", function () {
+    describe("generateTeamStats", function () {
+        describe("home", function () {
             beforeEach(() => {
                 bytes = new Uint8Array([8, 2, 0, 16, 7, 3, 32]);
                 locations = {
@@ -21,36 +21,36 @@ describe('team-stats-generator', function () {
                 result = generateTeamStats(bytes, locations, undefined, true);
             });
 
-            test('first downs', () => {
+            test("first downs", () => {
                 expect(result.firstDowns).toEqual(8);
             });
 
-            test('team id', () => {
+            test("team id", () => {
                 expect(result.teamId).toEqual(2);
             });
 
-            test('first quarter score', () => {
+            test("first quarter score", () => {
                 expect(result.score.firstQuarter).toEqual(0);
             });
 
-            test('second quarter score', () => {
+            test("second quarter score", () => {
                 expect(result.score.secondQuarter).toEqual(10);
             });
 
-            test('third quarter score', () => {
+            test("third quarter score", () => {
                 expect(result.score.thirdQuarter).toEqual(7);
             });
 
-            test('fourth quarter score', () => {
+            test("fourth quarter score", () => {
                 expect(result.score.fourthQuarter).toEqual(3);
             });
 
-            test('final score', () => {
+            test("final score", () => {
                 expect(result.score.finalScore).toEqual(20);
             });
         });
 
-        describe('away', function () {
+        describe("away", function () {
             beforeEach(() => {
                 bytes = new Uint8Array([10, 1, 16, 16, 0, 23, 55]);
                 locations = {
@@ -61,31 +61,31 @@ describe('team-stats-generator', function () {
                 result = generateTeamStats(bytes, undefined, locations, false);
             });
 
-            test('first downs', () => {
+            test("first downs", () => {
                 expect(result.firstDowns).toEqual(10);
             });
 
-            test('team id', () => {
+            test("team id", () => {
                 expect(result.teamId).toEqual(1);
             });
 
-            test('first quarter score', () => {
+            test("first quarter score", () => {
                 expect(result.score.firstQuarter).toEqual(10);
             });
 
-            test('second quarter score', () => {
+            test("second quarter score", () => {
                 expect(result.score.secondQuarter).toEqual(10);
             });
 
-            test('third quarter score', () => {
+            test("third quarter score", () => {
                 expect(result.score.thirdQuarter).toEqual(0);
             });
 
-            test('fourth quarter score', () => {
+            test("fourth quarter score", () => {
                 expect(result.score.fourthQuarter).toEqual(17);
             });
 
-            test('final score', () => {
+            test("final score", () => {
                 expect(result.score.finalScore).toEqual(37);
             });
         });
