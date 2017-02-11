@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {},
   "jest": {
+    "automock": true,
     "collectCoverage": true,
     "testRegex": "\\.spec\\.js$"
   },

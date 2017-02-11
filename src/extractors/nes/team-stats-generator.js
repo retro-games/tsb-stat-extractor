@@ -5,27 +5,22 @@
 import {getHexValueAsInt} from "../../utility";
 import TeamStats from "../../definitions/team-stats";
 
-export default function (bytes, homeLocations, awayLocations, isHome) {
-    let offset, locations, teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore;
-
-    if (isHome) {
-        locations = homeLocations;
-    } else {
-        locations = awayLocations;
-    }
+export default function (bytes, locations) {
+    let offset, teamId, firstDowns, firstQtr, secondQtr, thirdQtr, fourthQtr, finalScore;
+    
 
     offset = locations.FIRST_DOWNS;
     firstDowns = bytes[offset];
 
     offset = locations.SCORES;
-    firstQuarter = getHexValueAsInt(bytes[offset++]);
-    secondQuarter = getHexValueAsInt(bytes[offset++]);
-    thirdQuarter = getHexValueAsInt(bytes[offset++]);
-    fourthQuarter = getHexValueAsInt(bytes[offset++]);
+    firstQtr = getHexValueAsInt(bytes[offset++]);
+    secondQtr = getHexValueAsInt(bytes[offset++]);
+    thirdQtr = getHexValueAsInt(bytes[offset++]);
+    fourthQtr = getHexValueAsInt(bytes[offset++]);
     finalScore = getHexValueAsInt(bytes[offset]);
 
     offset = locations.TEAM_ID;
     teamId = bytes[offset];
 
-    return new TeamStats(teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore);
+    return new TeamStats(teamId, firstDowns, firstQtr, secondQtr, thirdQtr, fourthQtr, finalScore);
 }
