@@ -126,4 +126,65 @@ describe('player-stats-generator', () => {
             expect(result.rushTouchdowns).toEqual(3);
         });
     });
+
+    describe('getDefPlayerStats', () => {
+        beforeEach(() => {
+            bytes = new Uint8Array([2, 1, 4, 0, 0]);
+            result = PlayerStatsGenerator.getDefPlayerStats(bytes, 0);
+        });
+
+        test('sacks', () => {
+            expect(result.sacks).toEqual(2);
+        });
+
+        test('interceptions', () => {
+            expect(result.interceptions).toEqual(1);
+        });
+
+        test('interception yards', () => {
+            expect(result.intYards).toEqual(4);
+        });
+
+        test('interception touchdowns', () => {
+            expect(result.intTouchdowns).toEqual(0);
+        });
+    });
+
+    describe('getKickStats', () => {
+        beforeEach(() => {
+            bytes = new Uint8Array([2, 2, 1, 0,]);
+            result = PlayerStatsGenerator.getKickStats(bytes, 0);
+        });
+
+        test('field goal attempts', () => {
+            expect(result.fieldGoalAttempts).toEqual(2);
+        });
+
+        test('field goals made', () => {
+            expect(result.fieldGoalsMade).toEqual(2);
+        });
+
+        test('extra point attempts', () => {
+            expect(result.extraPointAttempts).toEqual(1);
+        });
+
+        test('extra points made', () => {
+            expect(result.extraPointsMade).toEqual(0);
+        });
+    });
+
+    describe('getPuntStats', () => {
+        beforeEach(() => {
+            bytes = new Uint8Array([8, 10, 2]);
+            result = PlayerStatsGenerator.getPuntStats(bytes, 0);
+        });
+
+        test('punts', () => {
+            expect(result.punts).toEqual(8);
+        });
+
+        test('punt yards', () => {
+            expect(result.puntYards).toEqual(522);
+        });
+    });
 });
