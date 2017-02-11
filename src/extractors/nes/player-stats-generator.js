@@ -2,8 +2,8 @@
  * Created by edgrams on 2/11/17.
  */
 
-import QBStats from '../../definitions/players/qb-stats';
-import OffPlayerStats from '../../definitions/players/off-player-stats';
+import {QBStats} from '../../definitions/players/qb-stats';
+import {OffPlayerStats} from '../../definitions/players/off-player-stats';
 
 const YARD_MULTIPLIER = 256;
 const YARD_MULTIPLIER_NEGATIVE = 255;

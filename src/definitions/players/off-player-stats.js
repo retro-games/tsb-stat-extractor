@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-export default class OffPlayerStats {
+export class OffPlayerStats {
     constructor(kickReturns, kickReturnTouchdowns, kickReturnYards, puntReturns, puntReturnTouchdowns, puntReturnYards,
                 receptions, recTouchdowns, recYards, rushAttempts, rushTouchdowns, rushYards) {
         this.kickReturns = kickReturns;
