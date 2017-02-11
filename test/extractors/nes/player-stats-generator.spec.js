@@ -74,12 +74,56 @@ describe('player-stats-generator', () => {
 
     describe('getOffPlayerStats', () => {
         beforeEach(() => {
-            bytes = new Uint8Array([3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            bytes = new Uint8Array([3, 69, 0, 1, 5, 12, 1, 0, 1, 254, 255, 0, 25, 157, 0, 3]);
             result = PlayerStatsGenerator.getOffPlayerStats(bytes, 0);
         });
 
         test('receptions', () => {
             expect(result.receptions).toEqual(3);
+        });
+
+        test('receiving yards', () => {
+            expect(result.recYards).toEqual(69);
+        });
+
+        test('receiving touchdowns', () => {
+            expect(result.recTouchdowns).toEqual(1);
+        });
+
+        test('kick returns', () => {
+            expect(result.kickReturns).toEqual(5);
+        });
+
+        test('kick return yards', () => {
+            expect(result.kickReturnYards).toEqual(268);
+        });
+
+        test('kick return touchdowns', () => {
+            expect(result.kickReturnTouchdowns).toEqual(0);
+        });
+
+        test('punt returns', () => {
+            expect(result.puntReturns).toEqual(1);
+        });
+
+        test('punt return yards', () => {
+            expect(result.puntReturnYards).toEqual(-2);
+        });
+
+        test('punt return touchdowns', () => {
+            expect(result.puntReturnTouchdowns).toEqual(0);
+        });
+
+        test('rushing attempts', () => {
+            expect(result.rushAttempts).toEqual(25);
+        });
+
+        test('rushing yards', () => {
+            expect(result.rushYards).toEqual(157);
+        });
+
+        test('rushing touchdowns', () => {
+            expect(result.rushTouchdowns).toEqual(3);
         });
     });
 });

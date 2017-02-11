@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-export default class QBStats {
+export class QBStats {
     constructor(passAttempts, passCompletions, passInterceptions, passTouchdowns, passYards, rushAttempts,
                 rushTouchdowns, rushYards) {
         this.passAttempts = passAttempts;
