@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-export class TeamStats {
+export default class TeamStats {
     constructor(teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore) {
         this.firstDowns = firstDowns;
         this.score = {
