@@ -2,7 +2,7 @@
  * Created by edgrams on 1/29/17.
  */
 
-export class GameStats {
+export default class GameStats {
     constructor(type) {
         this.type = type;
         this.home = {

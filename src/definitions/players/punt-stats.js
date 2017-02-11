@@ -2,9 +2,8 @@
  * Created by edgrams on 1/29/17.
  */
 
-export class PuntStats {
-    constructor(condition, punts, puntYards) {
-        this.condition = condition;
+export default class PuntStats {
+    constructor(punts, puntYards) {
         this.punts = punts;
         this.puntYards = puntYards;
     }

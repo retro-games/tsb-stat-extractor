@@ -2,8 +2,11 @@
  * Created by edgrams on 2/11/17.
  */
 
-import {QBStats} from '../../definitions/players/qb-stats';
-import {OffPlayerStats} from '../../definitions/players/off-player-stats';
+import QBStats from '../../definitions/players/qb-stats';
+import OffPlayerStats from '../../definitions/players/off-player-stats';
+import DefPlayerStats from '../../definitions/players/def-player-stats';
+import KickStats from '../../definitions/players/kick-stats';
+import PuntStats from '../../definitions/players/punt-stats';
 
 const YARD_MULTIPLIER = 256;
 const YARD_MULTIPLIER_NEGATIVE = 255;
@@ -58,4 +61,35 @@ function getOffPlayerStats(bytes, offset) {
         recs, recTDs, recYards, rushAtts, rushTDs, rushYards);
 }
 
-export {getQBStats, getOffPlayerStats, getYards};
+function getDefPlayerStats(bytes, offset) {
+    let sacks, ints, intYards, intTDs;
+
+    sacks = bytes[offset++];
+    ints = bytes[offset++];
+    intYards = getYards(bytes[offset++], bytes[offset++]);
+    intTDs = bytes[offset];
+
+    return new DefPlayerStats(ints, intTDs, intYards, sacks);
+}
+
+function getKickStats(bytes, offset) {
+    let epAtts, epMade, fgAtts, fgMade;
+
+    fgAtts = bytes[offset++];
+    fgMade = bytes[offset++];
+    epAtts = bytes[offset++];
+    epMade = bytes[offset];
+
+    return new KickStats(epAtts, epMade, fgAtts, fgMade);
+}
+
+function getPuntStats(bytes, offset) {
+    let punts, puntYards;
+
+    punts = bytes[offset++];
+    puntYards = getYards(bytes[offset++], bytes[offset]);
+
+    return new PuntStats(punts, puntYards);
+}
+
+export {getQBStats, getOffPlayerStats, getDefPlayerStats, getKickStats, getPuntStats, getYards};
