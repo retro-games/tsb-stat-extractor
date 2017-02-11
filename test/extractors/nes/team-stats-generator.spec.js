@@ -2,23 +2,25 @@
  * Created by edgrams on 2/5/17.
  */
 
+jest.unmock("../../../src/definitions/team-stats");
+jest.unmock("../../../src/extractors/nes/team-stats-generator");
 jest.unmock("../../../src/utility");
 
 import generateTeamStats from "../../../src/extractors/nes/team-stats-generator";
 
-let bytes, locations, result;
+let bytes, statLocations, result;
 
 describe("team-stats-generator", function () {
     describe("generateTeamStats", function () {
         describe("home", function () {
             beforeEach(() => {
                 bytes = new Uint8Array([8, 2, 0, 16, 7, 3, 32]);
-                locations = {
+                statLocations = {
                     FIRST_DOWNS: 0,
                     SCORES: 2,
                     TEAM_ID: 1
                 };
-                result = generateTeamStats(bytes, locations, undefined, true);
+                result = generateTeamStats(bytes, statLocations);
             });
 
             test("first downs", () => {
@@ -53,12 +55,12 @@ describe("team-stats-generator", function () {
         describe("away", function () {
             beforeEach(() => {
                 bytes = new Uint8Array([10, 1, 16, 16, 0, 23, 55]);
-                locations = {
+                statLocations = {
                     FIRST_DOWNS: 0,
                     SCORES: 2,
                     TEAM_ID: 1
                 };
-                result = generateTeamStats(bytes, undefined, locations, false);
+                result = generateTeamStats(bytes, statLocations);
             });
 
             test("first downs", () => {

@@ -2,6 +2,8 @@
  * Created by edgrams on 1/29/17.
  */
 
+jest.unmock("../src/utility");
+
 import {getHexValueAsInt} from "../src/utility";
 
 let result;
