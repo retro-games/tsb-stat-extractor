@@ -2,11 +2,11 @@
  * Created by edgrams on 2/11/17.
  */
 
-import QBStats from '../../definitions/players/qb-stats';
-import OffPlayerStats from '../../definitions/players/off-player-stats';
-import DefPlayerStats from '../../definitions/players/def-player-stats';
-import KickStats from '../../definitions/players/kick-stats';
-import PuntStats from '../../definitions/players/punt-stats';
+import QBStats from "../../definitions/players/qb-stats";
+import OffPlayerStats from "../../definitions/players/off-player-stats";
+import DefPlayerStats from "../../definitions/players/def-player-stats";
+import KickStats from "../../definitions/players/kick-stats";
+import PuntStats from "../../definitions/players/punt-stats";
 
 const YARD_MULTIPLIER = 256;
 const YARD_MULTIPLIER_NEGATIVE = 255;
