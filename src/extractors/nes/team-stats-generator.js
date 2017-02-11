@@ -2,8 +2,8 @@
  * Created by edgrams on 2/5/17.
  */
 
-import {getHexValueAsInt} from '../../utility';
-import TeamStats from '../../definitions/team-stats';
+import {getHexValueAsInt} from "../../utility";
+import TeamStats from "../../definitions/team-stats";
 
 export default function (bytes, homeLocations, awayLocations, isHome) {
     let offset, locations, teamId, firstDowns, firstQuarter, secondQuarter, thirdQuarter, fourthQuarter, finalScore;
