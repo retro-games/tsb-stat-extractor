@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "./test_entry_point.sh",
-    "lint": "jshint .",
+    "lint": "./linters_entry_point.sh",
     "validate": "gulp"
   },
   "repository": {
