@@ -6,8 +6,10 @@ const concat = require("gulp-concat");
 gulp.task("lint", () => {
    return gulp.src(["src/**/*.js", "test/**/*.spec.js"])
        .pipe(jshint())
+       .pipe(jshint.reporter("default"))
        .pipe(eslint())
-       .pipe(jshint.reporter("default"));
+       .pipe(eslint.format())
+       .pipe(eslint.failAfterError());
 });
 
 gulp.task("scripts", () => {
