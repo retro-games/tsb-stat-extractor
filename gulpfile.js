@@ -1,15 +1,16 @@
-var gulp = require("gulp");
-var jshint = require("gulp-jshint");
-var concat = require("gulp-concat");
-var rename = require("gulp-rename");
+const gulp = require("gulp");
+const eslint = require("gulp-eslint");
+const jshint = require("gulp-jshint");
+const concat = require("gulp-concat");
 
-gulp.task("lint", function () {
+gulp.task("lint", () => {
    return gulp.src(["src/**/*.js", "test/**/*.spec.js"])
        .pipe(jshint())
+       .pipe(eslint())
        .pipe(jshint.reporter("default"));
 });
 
-gulp.task("scripts", function () {
+gulp.task("scripts", () => {
    return gulp.src("src/**/*.js")
        .pipe(concat("tsb-stat-extractor.js"))
        .pipe(gulp.dest("dist"));
