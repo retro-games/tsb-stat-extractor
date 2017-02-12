@@ -100,20 +100,22 @@ function getPlayerStatsForTeam(bytes, statLocations) {
 
     for (i = 0; i < 2; i++) {
         playerStats.push(getQBStats(bytes, offset));
-        offset+10;
+        offset += 10;
     }
 
     for (i = 0; i < 10; i++) {
         playerStats.push(getOffPlayerStats(bytes, offset));
-        offset+16;
+        offset += 16;
     }
 
     for (i = 0; i < 11; i++) {
         playerStats.push(getDefPlayerStats(bytes, offset));
-        offset+5;
+        offset += 5;
     }
 
-    playerStats.push(getKickStats(bytes, offset+4));
+    playerStats.push(getKickStats(bytes, offset));
+    offset += 4;
+
     playerStats.push(getPuntStats(bytes, offset));
 
     return playerStats;
