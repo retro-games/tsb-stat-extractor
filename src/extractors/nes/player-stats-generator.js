@@ -92,4 +92,31 @@ function getPuntStats(bytes, offset) {
     return new PuntStats(punts, puntYards);
 }
 
-export {getQBStats, getOffPlayerStats, getDefPlayerStats, getKickStats, getPuntStats, getYards};
+function getPlayerStatsForTeam(bytes, statLocations) {
+    let i, offset, playerStats;
+
+    playerStats = [];
+    offset = statLocations.PLAYER_STATS;
+
+    for (i = 0; i < 2; i++) {
+        playerStats.push(getQBStats(bytes, offset));
+        offset+10;
+    }
+
+    for (i = 0; i < 10; i++) {
+        playerStats.push(getOffPlayerStats(bytes, offset));
+        offset+16;
+    }
+
+    for (i = 0; i < 11; i++) {
+        playerStats.push(getDefPlayerStats(bytes, offset));
+        offset+5;
+    }
+
+    playerStats.push(getKickStats(bytes, offset+4));
+    playerStats.push(getPuntStats(bytes, offset));
+
+    return playerStats;
+}
+
+export {getQBStats, getOffPlayerStats, getDefPlayerStats, getKickStats, getPuntStats, getYards, getPlayerStatsForTeam};
