@@ -5,21 +5,21 @@
 import {getHexValueAsInt} from "../../utility";
 import TeamStats from "../../definitions/team-stats";
 
-export default function (bytes, locations) {
+export default function (bytes, statLocations) {
     let offset, teamId, firstDowns, firstQtr, secondQtr, thirdQtr, fourthQtr, finalScore;
     
 
-    offset = locations.FIRST_DOWNS;
+    offset = statLocations.FIRST_DOWNS;
     firstDowns = bytes[offset];
 
-    offset = locations.SCORES;
+    offset = statLocations.SCORES;
     firstQtr = getHexValueAsInt(bytes[offset++]);
     secondQtr = getHexValueAsInt(bytes[offset++]);
     thirdQtr = getHexValueAsInt(bytes[offset++]);
     fourthQtr = getHexValueAsInt(bytes[offset++]);
     finalScore = getHexValueAsInt(bytes[offset]);
 
-    offset = locations.TEAM_ID;
+    offset = statLocations.TEAM_ID;
     teamId = bytes[offset];
 
     return new TeamStats(teamId, firstDowns, firstQtr, secondQtr, thirdQtr, fourthQtr, finalScore);

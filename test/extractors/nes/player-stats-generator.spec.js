@@ -11,10 +11,23 @@ jest.unmock("../../../src/extractors/nes/player-stats-generator");
 
 import * as PlayerStatsGenerator from "../../../src/extractors/nes/player-stats-generator";
 
-let bytes, result;
+let bytes, result, statLocations;
 
 describe("player-stats-generator", () => {
-   describe("getYards", () => {
+    describe("getPlayerStatsForTeam", () => {
+        test("total yards", () => {
+            bytes = Array.apply(null, Array(242)).map(function () { return 0; });
+            statLocations = {
+                PLAYER_STATS: 0
+            };
+
+            result = PlayerStatsGenerator.getPlayerStatsForTeam(bytes, statLocations);
+
+            expect(result.length).toEqual(25);
+        });
+    });
+
+    describe("getYards", () => {
        test("total yards", () => {
            result = PlayerStatsGenerator.getYards(50, 0);
 
@@ -38,7 +51,7 @@ describe("player-stats-generator", () => {
 
            expect(result).toEqual(-259);
        });
-   });
+    });
 
     describe("getQBStats", () => {
         beforeEach(() => {

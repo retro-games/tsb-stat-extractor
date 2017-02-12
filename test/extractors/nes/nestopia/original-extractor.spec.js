@@ -6,11 +6,12 @@ jest.unmock("../../../../src/definitions/game-stats");
 jest.unmock("../../../../src/extractors/nes/nestopia/original-extractor");
 
 import GameStats from "../../../../src/definitions/game-stats";
-import NestopiaOriginalExtractor from "../../../../src/extractors/nes/nestopia/original-extractor";
+import extract from "../../../../src/extractors/nes/nestopia/original-extractor";
 import * as StatLocations from "../../../../src/extractors/nes/nestopia/stat-locations";
+import {getPlayerStatsForTeam} from "../../../../src/extractors/nes/player-stats-generator";
 import getTeamStats from "../../../../src/extractors/nes/team-stats-generator";
 
-let awayTeamStats, bytes, homeTeamStats, saveStateTypes, result;
+let awayPlayerStats, awayTeamStats, bytes, homePlayerStats, homeTeamStats, saveStateTypes, result;
 
 describe("original-extractor", () => {
     describe("extract", () => {
@@ -19,29 +20,48 @@ describe("original-extractor", () => {
             saveStateTypes = "nestopia";
         });
 
-        test("awayTeam", () => {
-            NestopiaOriginalExtractor.extract(saveStateTypes, bytes);
+        test("away team stats", () => {
+            extract(saveStateTypes, bytes);
 
             expect(getTeamStats).toHaveBeenCalledWith(bytes, StatLocations.Away);
         });
 
-        test("homeTeam", () => {
-            NestopiaOriginalExtractor.extract(saveStateTypes, bytes);
+        test("home team stats", () => {
+            extract(saveStateTypes, bytes);
 
             expect(getTeamStats).toHaveBeenCalledWith(bytes, StatLocations.Home);
         });
 
+        test("away player stats", () => {
+            extract(saveStateTypes, bytes);
+
+            expect(getPlayerStatsForTeam).toHaveBeenCalledWith(bytes, StatLocations.Away);
+        });
+
+        test("home player stats", () => {
+            extract(saveStateTypes, bytes);
+
+            expect(getPlayerStatsForTeam).toHaveBeenCalledWith(bytes, StatLocations.Home);
+        });
+
         test("return game stats", () => {
+            awayPlayerStats = {};
             awayTeamStats = {};
+            homePlayerStats = {};
             homeTeamStats = {};
 
             getTeamStats
                 .mockReturnValueOnce(awayTeamStats)
                 .mockReturnValueOnce(homeTeamStats);
 
-            result = NestopiaOriginalExtractor.extract(saveStateTypes, bytes);
+            getPlayerStatsForTeam
+                .mockReturnValueOnce(awayTeamStats)
+                .mockReturnValueOnce(homeTeamStats);
 
-            expect(result).toEqual(new GameStats(awayTeamStats, undefined, homeTeamStats, undefined, saveStateTypes));
+            result = extract(saveStateTypes, bytes);
+
+            expect(result).toEqual(new GameStats(awayPlayerStats, awayTeamStats, homePlayerStats,
+                homeTeamStats, saveStateTypes));
         });
     });
 });
