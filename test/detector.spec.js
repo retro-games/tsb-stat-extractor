@@ -10,8 +10,8 @@ import {nesNestopiaSaveState, unknownSaveState} from "../src/save-states";
 
 let bytes, saveState;
 
-describe("detector", function () {
-    describe("detect", function () {
+describe("detector", () => {
+    describe("detect", () => {
         test("save state type if type is NES Nestopia", () => {
             bytes = new Array(nesNestopiaSaveState.LENGTH);
             saveState = detect(bytes);

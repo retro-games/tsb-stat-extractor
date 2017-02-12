@@ -16,7 +16,7 @@ let bytes, result, statLocations;
 describe("player-stats-generator", () => {
     describe("getPlayerStatsForTeam", () => {
         test("total yards", () => {
-            bytes = Array.apply(null, Array(242)).map(function () { return 0; });
+            bytes = Array.apply(null, Array(242)).map(() => { return 0; });
             statLocations = {
                 PLAYER_STATS: 0
             };

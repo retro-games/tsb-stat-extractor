@@ -10,9 +10,9 @@ import generateTeamStats from "../../../src/extractors/nes/team-stats-generator"
 
 let bytes, statLocations, result;
 
-describe("team-stats-generator", function () {
-    describe("generateTeamStats", function () {
-        describe("home", function () {
+describe("team-stats-generator", () => {
+    describe("generateTeamStats", () => {
+        describe("home", () => {
             beforeEach(() => {
                 bytes = new Uint8Array([8, 2, 0, 16, 7, 3, 32]);
                 statLocations = {
@@ -52,7 +52,7 @@ describe("team-stats-generator", function () {
             });
         });
 
-        describe("away", function () {
+        describe("away", () => {
             beforeEach(() => {
                 bytes = new Uint8Array([10, 1, 16, 16, 0, 23, 55]);
                 statLocations = {

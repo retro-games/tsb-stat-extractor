@@ -2,6 +2,13 @@
  * Created by edgrams on 1/29/17.
  */
 
+const healthBinary = {
+    DOUBTFUL: "11",
+    HEALTHY: "00",
+    PROBABLE: "01",
+    QUESTIONABLE: "10",
+};
+
 const health = {
     DOUBTFUL: "doubtful",
     HEALTHY: "healthy",
@@ -10,20 +17,20 @@ const health = {
     NA: ""
 };
 
-function getValue(healthBinary) {
+function getValue(binary) {
     let healthValue;
 
-    switch (healthBinary) {
-        case "00":
+    switch (binary) {
+        case healthBinary.HEALTHY:
             healthValue = health.HEALTHY;
             break;
-        case "01":
+        case healthBinary.PROBABLE:
             healthValue = health.PROBABLE;
             break;
-        case "10":
+        case healthBinary.QUESTIONABLE:
             healthValue = health.QUESTIONABLE;
             break;
-        case "11":
+        case healthBinary.DOUBTFUL:
             healthValue = health.DOUBTFUL;
             break;
         default:
@@ -34,4 +41,4 @@ function getValue(healthBinary) {
     return healthValue;
 }
 
-export {health, getValue};
+export {healthBinary, health, getValue};

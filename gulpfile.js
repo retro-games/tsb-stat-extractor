@@ -4,7 +4,7 @@ const jshint = require("gulp-jshint");
 const concat = require("gulp-concat");
 
 gulp.task("lint", () => {
-   return gulp.src(["src/**/*.js", "test/**/*.spec.js"])
+   return gulp.src(["**/*.js"])
        .pipe(jshint())
        .pipe(jshint.reporter("default"))
        .pipe(eslint())
