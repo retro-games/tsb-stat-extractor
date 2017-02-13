@@ -1,0 +1,24 @@
+{
+  "home": {
+    "firstDowns": 9,
+    "score": {
+      "firstQuarter": 6,
+      "secondQuarter": 0,
+      "thirdQuarter": 0,
+      "fourthQuarter": 0,
+      "final": 19
+    },
+    "teamId": 27
+  },
+  "away": {
+    "firstDowns": 7,
+    "score": {
+      "firstQuarter": 0,
+      "secondQuarter": 0,
+      "thirdQuarter": 0,
+      "fourthQuarter": 0,
+      "final": 13
+    },
+    "teamId": 1
+  }
+}
