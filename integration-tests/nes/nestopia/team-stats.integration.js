@@ -19,98 +19,108 @@ jest.unmock("../../../src/extractors/nes/team-stats-generator");
 jest.unmock("../../../src/utility");
 jest.unmock("../../helpers/decode");
 
+jest.unmock("../../fixtures/nes/game-one/state.json");
+jest.unmock("../../fixtures/nes/game-two/state.json");
+jest.unmock("../../fixtures/nes/game-one/team-stats.json");
+jest.unmock("../../fixtures/nes/game-two/team-stats.json");
+
 import extract from "../../../src/main";
 import decode from "../../helpers/decode";
 
-let encodedSaveState, gameStats, games, teamsResult, saveState;
+import saveStateGameOne from "../../fixtures/nes/game-one/state.json";
+import saveStateGameTwo from "../../fixtures/nes/game-two/state.json";
+import gameStatsGameOne from "../../fixtures/nes/game-one/team-stats.json";
+import gameStatsGameTwo from "../../fixtures/nes/game-two/team-stats.json";
+
+let decodedSaveState, encodedSaveState, gameStats, games, teamsResult;
 
 games = [{
-            saveStatePath: "../../fixtures/nes/game-one/state.json",
-            teamStatsPath: "../../fixtures/nes/game-one/team-stats.json"
+            saveState: saveStateGameOne,
+            teamsStats: gameStatsGameOne
         },
         {
-            saveStatePath: "../../fixtures/nes/game-two/state.json",
-            teamStatsPath: "../../fixtures/nes/game-two/team-stats.json"
+            saveState: saveStateGameTwo,
+            teamsStats: gameStatsGameTwo
         }];
 
 describe("generateTeamStats", () => {
     games.forEach((game) => {
         beforeAll(() => {
-            encodedSaveState = require(game.saveStatePath);
-            saveState = decode(encodedSaveState.binary);
-            gameStats = extract(saveState);
-            teamsResult = require(game.teamStatsPath);
+            encodedSaveState = game.saveState;
+            decodedSaveState = decode(encodedSaveState.binary);
+            gameStats = extract(decodedSaveState);
+            teamsResult = game.teamsStats;
         });
 
         describe("first downs", function () {
             test("away team", () => {
-                gameStats.awayTeamStats.firstDowns = teamsResult.away.firstDowns;
+                expect(gameStats.awayTeamStats.firstDowns).toEqual(teamsResult.away.firstDowns);
             });
 
             test("home team", () => {
-                gameStats.homeTeamStats.firstDowns = teamsResult.home.firstDowns;
+                expect(gameStats.homeTeamStats.firstDowns).toEqual(teamsResult.home.firstDowns);
             });
         });
 
         describe("scores", function () {
             describe("first quarter", () => {
                 test("away team", () => {
-                    gameStats.awayTeamStats.firstQuarter = teamsResult.away.firstQuarter;
+                    expect(gameStats.awayTeamStats.firstQuarter).toEqual(teamsResult.away.firstQuarter);
                 });
 
                 test("home team", () => {
-                    gameStats.homeTeamStats.firstQuarter = teamsResult.home.firstQuarter;
+                    expect(gameStats.homeTeamStats.firstQuarter).toEqual(teamsResult.home.firstQuarter);
                 });
             });
 
             describe("second quarter", () => {
                 test("away team", () => {
-                    gameStats.awayTeamStats.secondQuarter = teamsResult.away.secondQuarter;
+                    expect(gameStats.awayTeamStats.secondQuarter).toEqual(teamsResult.away.secondQuarter);
                 });
 
                 test("home team", () => {
-                    gameStats.homeTeamStats.secondQuarter = teamsResult.home.secondQuarter;
+                    expect(gameStats.homeTeamStats.secondQuarter).toEqual(teamsResult.home.secondQuarter);
                 });
             });
 
             describe("third quarter", () => {
                 test("away team", () => {
-                    gameStats.awayTeamStats.thirdQuarter = teamsResult.away.thirdQuarter;
+                    expect(gameStats.awayTeamStats.thirdQuarter).toEqual(teamsResult.away.thirdQuarter);
                 });
 
                 test("home team", () => {
-                    gameStats.homeTeamStats.thirdQuarter = teamsResult.home.thirdQuarter;
+                    expect(gameStats.homeTeamStats.thirdQuarter).toEqual(teamsResult.home.thirdQuarter);
                 });
             });
 
             describe("fourth quarter", () => {
                 test("away team", () => {
-                    gameStats.awayTeamStats.fourthQuarter = teamsResult.away.fourthQuarter;
+                    expect(gameStats.awayTeamStats.fourthQuarter).toEqual(teamsResult.away.fourthQuarter);
                 });
 
                 test("home team", () => {
-                    gameStats.homeTeamStats.fourthQuarter = teamsResult.home.fourthQuarter;
+                    expect(gameStats.homeTeamStats.fourthQuarter).toEqual(teamsResult.home.fourthQuarter);
                 });
             });
 
             describe("final score", () => {
                 test("away team", () => {
-                    gameStats.awayTeamStats.finalScore = teamsResult.away.finalScore;
+                    expect(gameStats.awayTeamStats.finalScore).toEqual(teamsResult.away.finalScore);
                 });
 
                 test("home team", () => {
-                    gameStats.homeTeamStats.finalScore = teamsResult.home.finalScore;
+                    expect(gameStats.homeTeamStats.finalScore).toEqual(teamsResult.home.finalScore);
                 });
             });
         });
 
         describe("team id", function () {
             test("away team", () => {
-                gameStats.awayTeamStats.teamId = teamsResult.away.teamId;
+                expect(gameStats.awayTeamStats.teamId).toEqual(teamsResult.away.teamId);
             });
 
             test("home team", () => {
-                gameStats.homeTeamStats.teamId = teamsResult.home.teamId;
+                expect(gameStats.homeTeamStats.teamId).toEqual(teamsResult.home.teamId);
             });
         });
     });
