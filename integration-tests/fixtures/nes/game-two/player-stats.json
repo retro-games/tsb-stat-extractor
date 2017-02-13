@@ -518,7 +518,7 @@
       {
         "type": "away dl 3",
         "condition": "average",
-        "sacks": 0,
+        "sacks": 1,
         "interceptions": 0,
         "intYards": 0,
         "intTouchdowns": 0
