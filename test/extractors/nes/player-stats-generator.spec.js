@@ -2,6 +2,8 @@
  * Created by edgrams on 2/11/17.
  */
 
+jest.unmock("../../../src/attributes/condition");
+jest.unmock("../../../src/attributes/health");
 jest.unmock("../../../src/definitions/players/def-player-stats");
 jest.unmock("../../../src/definitions/players/kick-stats");
 jest.unmock("../../../src/definitions/players/off-player-stats");
@@ -10,20 +12,99 @@ jest.unmock("../../../src/definitions/players/qb-stats");
 jest.unmock("../../../src/extractors/nes/player-stats-generator");
 
 import * as PlayerStatsGenerator from "../../../src/extractors/nes/player-stats-generator";
+import * as Condition from "../../../src/attributes/condition";
+import * as Health from "../../../src/attributes/health";
 
 let bytes, result, statLocations;
 
 describe("player-stats-generator", () => {
     describe("getPlayerStatsForTeam", () => {
-        test("total yards", () => {
+        test("number of players", () => {
             bytes = Array.apply(null, Array(242)).map(() => { return 0; });
             statLocations = {
+                CONDITIONS: 0,
+                HEALTH: 0,
                 PLAYER_STATS: 0
             };
 
             result = PlayerStatsGenerator.getPlayerStatsForTeam(bytes, statLocations);
 
             expect(result.length).toEqual(25);
+        });
+    });
+
+    describe("fillWithLeadingZeros", () => {
+        test("fill empty spots", () => {
+            result = PlayerStatsGenerator.fillWithLeadingZeros("11111", 8);
+
+            expect(result).toEqual("00011111");
+        });
+
+        test("no empty spots", () => {
+            result = PlayerStatsGenerator.fillWithLeadingZeros("11111001", 8);
+
+            expect(result).toEqual("11111001");
+        });
+
+        test("negative spots", () => {
+            result = PlayerStatsGenerator.fillWithLeadingZeros("11111001", 7);
+
+            expect(result).toEqual("11111001");
+        });
+    });
+
+    describe("getTeamHealthArray", () => {
+        test("health status", () => {
+            bytes = new Uint8Array([121, 255, 4]);
+
+            result = PlayerStatsGenerator.getTeamHealthArray(bytes, 0);
+
+            expect(result[0]).toBe(Health.health.PROBABLE);
+            expect(result[1]).toBe(Health.health.DOUBTFUL);
+            expect(result[2]).toBe(Health.health.QUESTIONABLE);
+            expect(result[3]).toBe(Health.health.PROBABLE);
+            expect(result[4]).toBe(Health.health.DOUBTFUL);
+            expect(result[5]).toBe(Health.health.DOUBTFUL);
+            expect(result[6]).toBe(Health.health.DOUBTFUL);
+            expect(result[7]).toBe(Health.health.DOUBTFUL);
+            expect(result[8]).toBe(Health.health.HEALTHY);
+            expect(result[9]).toBe(Health.health.HEALTHY);
+            expect(result[10]).toBe(Health.health.PROBABLE);
+            expect(result[11]).toBe(Health.health.HEALTHY);
+        });
+    });
+
+    describe("getTeamConditionArray", () => {
+        test("condition status", () => {
+            bytes = new Uint8Array([121, 255, 4, 100, 80, 232, 99]);
+
+            result = PlayerStatsGenerator.getTeamConditionArray(bytes, 0);
+
+            expect(result[0]).toBe(Condition.conditions.AVERAGE);
+            expect(result[1]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[2]).toBe(Condition.conditions.GOOD);
+            expect(result[3]).toBe(Condition.conditions.AVERAGE);
+            expect(result[4]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[5]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[6]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[7]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[8]).toBe(Condition.conditions.BAD);
+            expect(result[9]).toBe(Condition.conditions.BAD);
+            expect(result[10]).toBe(Condition.conditions.AVERAGE);
+            expect(result[11]).toBe(Condition.conditions.BAD);
+            expect(result[12]).toBe(Condition.conditions.AVERAGE);
+            expect(result[13]).toBe(Condition.conditions.GOOD);
+            expect(result[14]).toBe(Condition.conditions.AVERAGE);
+            expect(result[15]).toBe(Condition.conditions.BAD);
+            expect(result[16]).toBe(Condition.conditions.AVERAGE);
+            expect(result[17]).toBe(Condition.conditions.AVERAGE);
+            expect(result[18]).toBe(Condition.conditions.BAD);
+            expect(result[19]).toBe(Condition.conditions.BAD);
+            expect(result[20]).toBe(Condition.conditions.EXCELLENT);
+            expect(result[21]).toBe(Condition.conditions.GOOD);
+            expect(result[22]).toBe(Condition.conditions.GOOD);
+            expect(result[23]).toBe(Condition.conditions.BAD);
+            expect(result[24]).toBe(Condition.conditions.AVERAGE);
         });
     });
 

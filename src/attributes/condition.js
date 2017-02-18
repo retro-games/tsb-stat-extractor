@@ -24,13 +24,13 @@ function getValue(binary) {
         case conditionsBinary.BAD:
             conditionValue = conditions.BAD;
             break;
-        case "01":
+        case conditionsBinary.AVERAGE:
             conditionValue = conditions.AVERAGE;
             break;
-        case "10":
+        case conditionsBinary.GOOD:
             conditionValue = conditions.GOOD;
             break;
-        case "11":
+        case conditionsBinary.EXCELLENT:
             conditionValue = conditions.EXCELLENT;
             break;
         default:

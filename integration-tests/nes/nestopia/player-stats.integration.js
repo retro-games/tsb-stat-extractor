@@ -5,10 +5,13 @@
 jest.unmock("../../../src/main");
 jest.unmock("../../../src/detector");
 jest.unmock("../../../src/save-states");
+jest.unmock("../../../src/attributes/condition");
+jest.unmock("../../../src/attributes/health");
 jest.unmock("../../../src/definitions/game-stats");
 jest.unmock("../../../src/definitions/players/def-player-stats");
 jest.unmock("../../../src/definitions/players/kick-stats");
 jest.unmock("../../../src/definitions/players/off-player-stats");
+jest.unmock("../../../src/definitions/players/player");
 jest.unmock("../../../src/definitions/players/punt-stats");
 jest.unmock("../../../src/definitions/players/qb-stats");
 jest.unmock("../../../src/definitions/team-stats");
@@ -55,6 +58,7 @@ describe("generatePlayerStats", () => {
         describe("qb stats", function () {
             test("away team", () => {
                 for (i = 0; i <= 1; i++) {
+                    console.log(gameStats.awayPlayerStats[i]);
                     expect(gameStats.awayPlayerStats[i].passAttempts).toEqual(playersResult.
                         away.player[i].passAttempts);
                     expect(gameStats.awayPlayerStats[i].passCompletions).toEqual(playersResult.
@@ -71,6 +75,10 @@ describe("generatePlayerStats", () => {
                         away.player[i].rushTouchdowns);
                     expect(gameStats.awayPlayerStats[i].rushYards).toEqual(playersResult.
                         away.player[i].rushYards);
+                    expect(gameStats.awayPlayerStats[i].health).toEqual(playersResult.
+                        away.player[i].health);
+                    expect(gameStats.awayPlayerStats[i].condition).toEqual(playersResult.
+                        away.player[i].condition);
                 }
             });
 
@@ -92,6 +100,10 @@ describe("generatePlayerStats", () => {
                         home.player[i].rushTouchdowns);
                     expect(gameStats.homePlayerStats[i].rushYards).toEqual(playersResult.
                         home.player[i].rushYards);
+                    expect(gameStats.homePlayerStats[i].health).toEqual(playersResult.
+                        home.player[i].health);
+                    expect(gameStats.homePlayerStats[i].condition).toEqual(playersResult.
+                        home.player[i].condition);
                 }
             });
         });
@@ -123,6 +135,10 @@ describe("generatePlayerStats", () => {
                         away.player[i].rushTouchdowns);
                     expect(gameStats.awayPlayerStats[i].rushYards).toEqual(playersResult.
                         away.player[i].rushYards);
+                    expect(gameStats.awayPlayerStats[i].health).toEqual(playersResult.
+                        away.player[i].health);
+                    expect(gameStats.awayPlayerStats[i].condition).toEqual(playersResult.
+                        away.player[i].condition);
                 }
             });
 
@@ -152,6 +168,10 @@ describe("generatePlayerStats", () => {
                         home.player[i].rushTouchdowns);
                     expect(gameStats.homePlayerStats[i].rushYards).toEqual(playersResult.
                         home.player[i].rushYards);
+                    expect(gameStats.homePlayerStats[i].health).toEqual(playersResult.
+                        home.player[i].health);
+                    expect(gameStats.homePlayerStats[i].condition).toEqual(playersResult.
+                        home.player[i].condition);
                 }
             });
         });
@@ -167,6 +187,10 @@ describe("generatePlayerStats", () => {
                         away.player[i].intTouchdowns);
                     expect(gameStats.awayPlayerStats[i].intYards).toEqual(playersResult.
                         away.player[i].intYards);
+                    expect(gameStats.awayPlayerStats[i].health).toEqual(playersResult.
+                        away.player[i].health);
+                    expect(gameStats.awayPlayerStats[i].condition).toEqual(playersResult.
+                        away.player[i].condition);
                 }
             });
 
@@ -180,6 +204,10 @@ describe("generatePlayerStats", () => {
                         home.player[i].intTouchdowns);
                     expect(gameStats.homePlayerStats[i].intYards).toEqual(playersResult.
                         home.player[i].intYards);
+                    expect(gameStats.homePlayerStats[i].health).toEqual(playersResult.
+                        home.player[i].health);
+                    expect(gameStats.homePlayerStats[i].condition).toEqual(playersResult.
+                        home.player[i].condition);
                 }
             });
         });
@@ -195,6 +223,10 @@ describe("generatePlayerStats", () => {
                         away.player[i].fieldGoalAttempts);
                     expect(gameStats.awayPlayerStats[i].fieldGoalsMade).toEqual(playersResult.
                         away.player[i].fieldGoalsMade);
+                    expect(gameStats.awayPlayerStats[i].health).toEqual(playersResult.
+                        away.player[i].health);
+                    expect(gameStats.awayPlayerStats[i].condition).toEqual(playersResult.
+                        away.player[i].condition);
                 }
             });
 
@@ -208,6 +240,10 @@ describe("generatePlayerStats", () => {
                         home.player[i].fieldGoalAttempts);
                     expect(gameStats.homePlayerStats[i].fieldGoalsMade).toEqual(playersResult.
                         home.player[i].fieldGoalsMade);
+                    expect(gameStats.homePlayerStats[i].health).toEqual(playersResult.
+                        home.player[i].health);
+                    expect(gameStats.homePlayerStats[i].condition).toEqual(playersResult.
+                        home.player[i].condition);
                 }
             });
         });
@@ -219,6 +255,10 @@ describe("generatePlayerStats", () => {
                         away.player[i].punts);
                     expect(gameStats.awayPlayerStats[i].puntYards).toEqual(playersResult.
                         away.player[i].puntYards);
+                    expect(gameStats.awayPlayerStats[i].health).toEqual(playersResult.
+                        away.player[i].health);
+                    expect(gameStats.awayPlayerStats[i].condition).toEqual(playersResult.
+                        away.player[i].condition);
                 }
             });
 
@@ -228,6 +268,10 @@ describe("generatePlayerStats", () => {
                         home.player[i].punts);
                     expect(gameStats.homePlayerStats[i].puntYards).toEqual(playersResult.
                         home.player[i].puntYards);
+                    expect(gameStats.homePlayerStats[i].health).toEqual(playersResult.
+                        home.player[i].health);
+                    expect(gameStats.homePlayerStats[i].condition).toEqual(playersResult.
+                        home.player[i].condition);
                 }
             });
         });
