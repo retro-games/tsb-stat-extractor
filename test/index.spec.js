@@ -6,11 +6,11 @@ jest.unmock("../src/index");
 jest.unmock("../src/save-states");
 
 import detector from "../src/detector";
-import {extract} from "../src/index";
+import {extract, extractFromArrayBuffer} from "../src/index";
 import NesNestopiaOriginalExtractor from "../src/extractors/nes/nestopia/original-extractor";
 import * as SaveStates from "../src/save-states";
 
-let bytes;
+let arrayBuffer, bytes;
 
 describe("index", () => {
     describe("extract", () => {
@@ -39,6 +39,36 @@ describe("index", () => {
         test("throw for unknown save state", () => {
             expect(() => {
                 extract(bytes);
+            }).toThrowError("Unknown save state.");
+        });
+    });
+
+    describe("extractFromArrayBuffer", () => {
+        beforeEach(() => {
+            arrayBuffer = new ArrayBuffer(0);
+        });
+
+        test("detect save state", () => {
+            detector
+                .mockReturnValueOnce(SaveStates.nesNestopiaSaveState);
+
+            extractFromArrayBuffer(arrayBuffer);
+
+            expect(detector).toHaveBeenCalledWith(bytes);
+        });
+
+        test("extract nes nestopia original save state", () => {
+            detector
+                .mockReturnValueOnce(SaveStates.nesNestopiaSaveState);
+
+            extractFromArrayBuffer(arrayBuffer);
+
+            expect(NesNestopiaOriginalExtractor).toHaveBeenCalledWith(SaveStates.nesNestopiaSaveState.TYPE, bytes);
+        });
+
+        test("throw for unknown save state", () => {
+            expect(() => {
+                extractFromArrayBuffer(arrayBuffer);
             }).toThrowError("Unknown save state.");
         });
     });

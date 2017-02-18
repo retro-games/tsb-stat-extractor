@@ -6,7 +6,7 @@ import detector from "./detector";
 import * as SaveStates from "./save-states";
 import NesNestopiaOriginalExtract from "./extractors/nes/nestopia/original-extractor";
 
-function extract (bytes) {
+function extract(bytes) {
     let gameStats, saveState;
 
     saveState = detector(bytes);
@@ -20,4 +20,9 @@ function extract (bytes) {
     return gameStats;
 }
 
-export {extract};
+function extractFromArrayBuffer(arrayBuffer) {
+    const bytes = new Uint8Array(arrayBuffer, 0, arrayBuffer.byteLength);
+    extract(bytes);
+}
+
+export {extract, extractFromArrayBuffer};

@@ -3,18 +3,26 @@
 *A stat extractor for TSB save states, written in ECMAScript 6*
 
 Current save states supported:
- * **TSB-NES (Nestopia)**
+* **TSB-NES (Nestopia)**
  
- ## Example
+## Examples
  
- ```javascript
- let reader = new FileReader();
+```javascript
+import {extract} from 'tsb-stat-extractor'
+
+let reader = new FileReader();
  
- reader.onload = function() {
+reader.onload = function() {
     const arrayBuffer = reader.result;
-    const buffer = new Uint8Array(arrayBuffer, 0, arrayBuffer.byteLength);
-    console.log(extract(buffer));
- };
+    const bytes = new Uint8Array(arrayBuffer, 0, arrayBuffer.byteLength);
+    console.log(extract(bytes));
+};
  
- reader.readAsArrayBuffer(file);
- ```
+reader.readAsArrayBuffer(file);
+```
+ 
+```javascript
+import {extractFromArrayBuffer} from 'tsb-stat-extractor'
+
+extractFromArrayBuffer(arrayBuffer);
+```
