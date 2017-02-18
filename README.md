@@ -24,5 +24,5 @@ reader.readAsArrayBuffer(file);
 ```javascript
 import {extractFromArrayBuffer} from 'tsb-stat-extractor'
 
-extractFromArrayBuffer(arrayBuffer);
+console.log(extractFromArrayBuffer(arrayBuffer));
 ```
