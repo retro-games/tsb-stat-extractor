@@ -2,7 +2,7 @@
  * Created by edgrams on 2/11/17.
  */
 
-jest.unmock("../../../src/main");
+jest.unmock("../../../src/index");
 jest.unmock("../../../src/detector");
 jest.unmock("../../../src/save-states");
 jest.unmock("../../../src/attributes/condition");
@@ -27,7 +27,7 @@ jest.unmock("../../fixtures/nes/game-two/state.json");
 jest.unmock("../../fixtures/nes/game-one/player-stats.json");
 jest.unmock("../../fixtures/nes/game-two/player-stats.json");
 
-import extract from "../../../src/main";
+import {extract} from "../../../src/index";
 import decode from "../../helpers/decode";
 
 import saveStateGameOne from "../../fixtures/nes/game-one/state.json";
@@ -58,7 +58,6 @@ describe("generatePlayerStats", () => {
         describe("qb stats", function () {
             test("away team", () => {
                 for (i = 0; i <= 1; i++) {
-                    console.log(gameStats.awayPlayerStats[i]);
                     expect(gameStats.awayPlayerStats[i].passAttempts).toEqual(playersResult.
                         away.player[i].passAttempts);
                     expect(gameStats.awayPlayerStats[i].passCompletions).toEqual(playersResult.

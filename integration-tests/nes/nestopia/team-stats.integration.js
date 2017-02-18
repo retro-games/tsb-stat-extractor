@@ -2,7 +2,7 @@
  * Created by edgrams on 2/11/17.
  */
 
-jest.unmock("../../../src/main");
+jest.unmock("../../../src/index");
 jest.unmock("../../../src/detector");
 jest.unmock("../../../src/save-states");
 jest.unmock("../../../src/definitions/game-stats");
@@ -24,7 +24,7 @@ jest.unmock("../../fixtures/nes/game-two/state.json");
 jest.unmock("../../fixtures/nes/game-one/team-stats.json");
 jest.unmock("../../fixtures/nes/game-two/team-stats.json");
 
-import extract from "../../../src/main";
+import {extract} from "../../../src/index";
 import decode from "../../helpers/decode";
 
 import saveStateGameOne from "../../fixtures/nes/game-one/state.json";
