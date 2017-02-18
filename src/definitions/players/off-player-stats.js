@@ -2,9 +2,12 @@
  * Created by edgrams on 1/29/17.
  */
 
-export default class OffPlayerStats {
+import Player from "./player";
+
+export default class OffPlayerStats extends Player {
     constructor(kickReturns, kickReturnTouchdowns, kickReturnYards, puntReturns, puntReturnTouchdowns, puntReturnYards,
-                receptions, recTouchdowns, recYards, rushAttempts, rushTouchdowns, rushYards) {
+                receptions, recTouchdowns, recYards, rushAttempts, rushTouchdowns, rushYards, health, condition) {
+        super();
         this.kickReturns = kickReturns;
         this.kickReturnTouchdowns = kickReturnTouchdowns;
         this.kickReturnYards = kickReturnYards;
@@ -17,5 +20,7 @@ export default class OffPlayerStats {
         this.rushAttempts = rushAttempts;
         this.rushTouchdowns = rushTouchdowns;
         this.rushYards = rushYards;
+        this.health = health;
+        this.condition = condition;
     }
 }
