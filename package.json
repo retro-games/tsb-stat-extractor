@@ -1,7 +1,7 @@
 {
-  "name": "tsb-stat-extractor-es6",
+  "name": "tsb-stat-extractor",
   "version": "1.0.0",
-  "description": "tsb-stat-extractor-es6",
+  "description": "tsb-stat-extractor",
   "main": "./dist/index.js",
   "dependencies": {},
   "jest": {
@@ -21,14 +21,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/retro-games/tsb-stat-extractor-es6.git"
+    "url": "git+ssh://git@github.com/retro-games/tsb-stat-extractor.git"
   },
   "author": "edrex333",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/retro-games/tsb-stat-extractor-es6/issues"
+    "url": "https://github.com/retro-games/tsb-stat-extractor/issues"
   },
-  "homepage": "https://github.com/retro-games/tsb-stat-extractor-es6#readme",
+  "homepage": "https://github.com/retro-games/tsb-stat-extractor#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-jest": "^18.0.0",
