@@ -22,7 +22,7 @@ function extract(bytes) {
 
 function extractFromArrayBuffer(arrayBuffer) {
     const bytes = new Uint8Array(arrayBuffer, 0, arrayBuffer.byteLength);
-    extract(bytes);
+    return extract(bytes);
 }
 
 export {extract, extractFromArrayBuffer};

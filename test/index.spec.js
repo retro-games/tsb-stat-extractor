@@ -10,7 +10,7 @@ import {extract, extractFromArrayBuffer} from "../src/index";
 import NesNestopiaOriginalExtractor from "../src/extractors/nes/nestopia/original-extractor";
 import * as SaveStates from "../src/save-states";
 
-let arrayBuffer, bytes;
+let arrayBuffer, bytes, result;
 
 describe("index", () => {
     describe("extract", () => {
@@ -41,6 +41,17 @@ describe("index", () => {
                 extract(bytes);
             }).toThrowError("Unknown save state.");
         });
+
+        test("return gameStats", () => {
+            detector
+                .mockReturnValueOnce(SaveStates.nesNestopiaSaveState);
+            NesNestopiaOriginalExtractor
+                .mockReturnValueOnce([]);
+
+            result = extract(bytes);
+
+            expect(result).toEqual([]);
+        });
     });
 
     describe("extractFromArrayBuffer", () => {
@@ -70,6 +81,17 @@ describe("index", () => {
             expect(() => {
                 extractFromArrayBuffer(arrayBuffer);
             }).toThrowError("Unknown save state.");
+        });
+
+        test("return gameStats", () => {
+            detector
+                .mockReturnValueOnce(SaveStates.nesNestopiaSaveState);
+            NesNestopiaOriginalExtractor
+                .mockReturnValueOnce([]);
+
+            result = extract(bytes);
+
+            expect(result).toEqual([]);
         });
     });
 });

@@ -1,6 +1,6 @@
 {
   "name": "tsb-stat-extractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "tsb-stat-extractor",
   "main": "./dist/index.js",
   "dependencies": {},
