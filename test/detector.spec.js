@@ -1,9 +1,3 @@
-/**
- * Created by edgrams on 1/29/17.
- */
-
-jest.unmock("../src/detector");
-jest.unmock("../src/save-states");
 
 import detect from "../src/detector";
 import {nesNestopiaSaveState, unknownSaveState} from "../src/save-states";

@@ -5,7 +5,6 @@
   "main": "./dist/index.js",
   "dependencies": {},
   "jest": {
-    "automock": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.js"

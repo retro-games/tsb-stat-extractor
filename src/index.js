@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 2/11/17.
- */
 
 import detector from "./detector";
 import * as SaveStates from "./save-states";

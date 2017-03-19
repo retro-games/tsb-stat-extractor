@@ -1,9 +1,7 @@
-/**
- * Created by edgrams on 2/11/17.
- */
 
-jest.unmock("../../../../src/definitions/game-stats");
-jest.unmock("../../../../src/extractors/nes/nestopia/original-extractor");
+jest.mock("../../../../src/extractors/nes/nestopia/stat-locations");
+jest.mock("../../../../src/extractors/nes/player-stats-generator");
+jest.mock("../../../../src/extractors/nes/team-stats-generator");
 
 import GameStats from "../../../../src/definitions/game-stats";
 import extract from "../../../../src/extractors/nes/nestopia/original-extractor";

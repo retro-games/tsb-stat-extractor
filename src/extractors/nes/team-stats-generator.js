@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 2/5/17.
- */
 
 import {getHexValueAsInt} from "../../utility";
 import TeamStats from "../../definitions/team-stats";

@@ -1,15 +1,3 @@
-/**
- * Created by edgrams on 2/11/17.
- */
-
-jest.unmock("../../../src/attributes/condition");
-jest.unmock("../../../src/attributes/health");
-jest.unmock("../../../src/definitions/players/def-player-stats");
-jest.unmock("../../../src/definitions/players/kick-stats");
-jest.unmock("../../../src/definitions/players/off-player-stats");
-jest.unmock("../../../src/definitions/players/punt-stats");
-jest.unmock("../../../src/definitions/players/qb-stats");
-jest.unmock("../../../src/extractors/nes/player-stats-generator");
 
 import * as PlayerStatsGenerator from "../../../src/extractors/nes/player-stats-generator";
 import * as Condition from "../../../src/attributes/condition";

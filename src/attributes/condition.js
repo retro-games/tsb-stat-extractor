@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 1/29/17.
- */
 
 const conditionsBinary = {
     AVERAGE: "01",
