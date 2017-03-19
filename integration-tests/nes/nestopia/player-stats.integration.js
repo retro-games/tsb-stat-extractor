@@ -1,31 +1,3 @@
-/**
- * Created by edgrams on 2/11/17.
- */
-
-jest.unmock("../../../src/index");
-jest.unmock("../../../src/detector");
-jest.unmock("../../../src/save-states");
-jest.unmock("../../../src/attributes/condition");
-jest.unmock("../../../src/attributes/health");
-jest.unmock("../../../src/definitions/game-stats");
-jest.unmock("../../../src/definitions/players/def-player-stats");
-jest.unmock("../../../src/definitions/players/kick-stats");
-jest.unmock("../../../src/definitions/players/off-player-stats");
-jest.unmock("../../../src/definitions/players/player");
-jest.unmock("../../../src/definitions/players/punt-stats");
-jest.unmock("../../../src/definitions/players/qb-stats");
-jest.unmock("../../../src/definitions/team-stats");
-jest.unmock("../../../src/extractors/nes/nestopia/original-extractor");
-jest.unmock("../../../src/extractors/nes/nestopia/stat-locations");
-jest.unmock("../../../src/extractors/nes/player-stats-generator");
-jest.unmock("../../../src/extractors/nes/team-stats-generator");
-jest.unmock("../../../src/utility");
-jest.unmock("../../helpers/decode");
-
-jest.unmock("../../fixtures/nes/game-one/state.json");
-jest.unmock("../../fixtures/nes/game-two/state.json");
-jest.unmock("../../fixtures/nes/game-one/player-stats.json");
-jest.unmock("../../fixtures/nes/game-two/player-stats.json");
 
 import {extract} from "../../../src/index";
 import decode from "../../helpers/decode";

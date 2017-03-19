@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 2/11/17.
- */
 
 function b64ToUint6(nChr) {
 

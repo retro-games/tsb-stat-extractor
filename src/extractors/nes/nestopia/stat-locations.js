@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 2/11/17.
- */
 
 const Away = {
     CONDITIONS: 6295,

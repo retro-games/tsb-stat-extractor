@@ -1,10 +1,3 @@
-/**
- * Created by edgrams on 2/5/17.
- */
-
-jest.unmock("../../../src/definitions/team-stats");
-jest.unmock("../../../src/extractors/nes/team-stats-generator");
-jest.unmock("../../../src/utility");
 
 import generateTeamStats from "../../../src/extractors/nes/team-stats-generator";
 

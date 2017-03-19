@@ -1,9 +1,6 @@
-/**
- * Created by edgrams on 2/12/17.
- */
 
-jest.unmock("../src/index");
-jest.unmock("../src/save-states");
+jest.mock("../src/detector");
+jest.mock("../src/extractors/nes/nestopia/original-extractor");
 
 import detector from "../src/detector";
 import {extract, extractFromArrayBuffer} from "../src/index";

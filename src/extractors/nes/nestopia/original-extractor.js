@@ -1,6 +1,3 @@
-/**
- * Created by edgrams on 2/5/17.
- */
 
 import {getPlayerStatsForTeam} from "../player-stats-generator";
 import getTeamStats from "../team-stats-generator";

@@ -1,8 +1,3 @@
-/**
- * Created by edgrams on 2/12/17.
- */
-
-jest.unmock("../../src/attributes/health");
 
 import * as Health from "../../src/attributes/health";
 
