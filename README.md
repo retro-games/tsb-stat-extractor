@@ -6,7 +6,9 @@ Current save states supported:
 * **TSB-NES (Nestopia)**
  
 ## Examples
- 
+
+From file:
+
 ```javascript
 import {extract} from 'tsb-stat-extractor'
 
@@ -20,6 +22,8 @@ reader.onload = function() {
  
 reader.readAsArrayBuffer(file);
 ```
+
+From array buffer: 
  
 ```javascript
 import {extractFromArrayBuffer} from 'tsb-stat-extractor'
