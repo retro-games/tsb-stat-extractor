@@ -9,7 +9,6 @@ test
 .eslintignore
 .eslintrc
 .gitignore
-.gitlab-ci.yml
 .jshintignore
 .jshintrc
 .nvmrc
@@ -18,6 +17,4 @@ test
 gulpfile.js
 linters_entry_point.sh
 test_entry_point.sh
-yarn.lock
-.
 
