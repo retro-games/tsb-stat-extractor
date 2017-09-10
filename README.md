@@ -3,7 +3,7 @@
 *A stat extractor for TSB save states, written in ECMAScript 6*
 
 Current save states supported:
-* **TSB-NES (Nestopia)**
+* **TSB NES (Nestopia)**
  
 ## Examples
 
