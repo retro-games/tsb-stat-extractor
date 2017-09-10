@@ -3,7 +3,6 @@
   "version": "1.0.2",
   "description": "tsb-stat-extractor",
   "main": "./dist/index.js",
-  "dependencies": {},
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -15,8 +14,7 @@
     "build": "./node_modules/.bin/babel src --presets babel-preset-es2015 --out-dir dist",
     "lint": "./linters_entry_point.sh",
     "prepublish": "npm run build",
-    "test": "./test_entry_point.sh",
-    "validate": "gulp"
+    "test": "./test_entry_point.sh"
   },
   "repository": {
     "type": "git",
@@ -40,10 +38,6 @@
     "eslint-plugin-node": "5.1.1",
     "eslint-plugin-promise": "3.5.0",
     "eslint-plugin-standard": "3.0.1",
-    "gulp": "3.9.1",
-    "gulp-concat": "2.6.1",
-    "gulp-eslint": "4.0.0",
-    "gulp-jshint": "2.0.4",
     "jest": "21.0.2",
     "jest-cli": "21.0.2",
     "jshint": "2.9.5",
@@ -51,7 +45,6 @@
   },
   "pre-commit": [
     "lint",
-    "validate",
     "test"
   ]
 }
